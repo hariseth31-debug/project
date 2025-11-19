@@ -3,74 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products |HariTech</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <title>Products | HariTech</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({ duration: 1000, once: true });
-    });
-  </script>
 </head>
-<body class="bg-gray-50">
- 
-  <nav class="bg-blue p-5 flex justify-between items-center">
-    <h1 class="logo text-2xl font-bold cursor-pointer">HariTech</h1>
-    <ul class="flex space-x-6">
-      <li><a href="index.html" class="hover:text-blue-500">Home</a></li>
-      <li><a href="about.html" class="hover:text-blue-500">About</a></li>
-      <li><a href="product.html" class="hover:text-blue-500">Products</a></li>
-      <li><a href="contact.html" class="hover:text-blue-500">Contact</a></li>
+<body>
+
+  <nav>
+    <h1 class="logo">HariTech</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-  <section class="py-16 px-6 md:px-20">
-    <h2 data-aos="fade-up" class="text-4xl font-bold text-center mb-10">OUR PRODUCTS</h2>
+
+  <section>
+    <h2>OUR PRODUCTS</h2>
     
-    <div class="grid md:grid-cols-3 gap-10" id="product-list">
-   
-      <div class="card" data-aos="fade-up">
-        <img src="mx-mechanical.webp" class="w-full rounded-lg mb-4">
-        <h3 class="text-xl font-semibold text-blue-900">Keys</h3>
-        <p class="text-gray-600 mb-3">A smooth, reliable keyboard for everyday typing.</p>
-        <p class="font-bold mb-3">$69.99</p>
-        <button class="add-to-cart bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition">Add to Cart</button>
+    <div class="grid">
+      
+      <div class="card">
+        <img src="images/keys.webp" alt="Keys">
+        <h4>Keys</h4>
+        <p>A smooth, reliable keyboard for everyday typing.</p>
+        <p class="price">$69.99</p>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
 
-    
-      <div class="card" data-aos="fade-up" data-aos-delay="100">
-        <img src="wave-keys-fob-off-white-gallery-us.webp" alt="keyboard" class="w-full rounded-lg mb-4">
-        <h3 class="text-xl font-semibold text-blue-900">Wavy Keys</h3>
-        <p class="text-gray-600 mb-3">Ergonomic keys designed for comfort at home or in the office.</p>
-        <p class="font-bold mb-3">$89.99</p>
-        <button class="add-to-cart bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition">Add to Cart</button>
+      <div class="card">
+        <img src="images/wavykeys.webp" alt="Wavy Keys">
+        <h4>Wavy Keys</h4>
+        <p>Ergonomic keys designed for comfort at home or in the office.</p>
+        <p class="price">$89.99</p>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
 
-   
-      <div class="card" data-aos="fade-up" data-aos-delay="200">
-        <img src="g502x-plus.webp" alt="Mouse" class="w-full rounded-lg mb-4">
-        <h3 class="text-xl font-semibold text-blue-900">Mice</h3>
-        <p class="text-gray-600 mb-3">Control your cursor smoothly and enhance your gaming performance.</p>
-        <p class="font-bold mb-3">$29.99</p>
-        <button class="add-to-cart bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition">Add to Cart</button>
+      <div class="card">
+        <img src="images/mice.webp" alt="Mice">
+        <h4>Mice</h4>
+        <p>Control your cursor smoothly and enhance your gaming performance.</p>
+        <p class="price">$29.99</p>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
+
     </div>
 
-    <div data-aos="fade-up" class="mt-16 bg-white p-8 rounded-2xl shadow-lg max-w-2xl mx-auto">
-      <h3 class="text-2xl font-bold text-blue-900 mb-4">🛒 Your Cart</h3>
-      <ul id="cart-items" class="mb-4 text-gray-700"></ul>
-      <p class="font-semibold">Total: $<span id="cart-total">0.00</span></p>
-      <button id="clear-cart" class="mt-4 bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition">Clear Cart</button>
+    <div class="cart-section">
+      <h3>🛒 Your Cart</h3>
+      <ul id="cart-items"></ul>
+      <p class="cart-total">Total: $<span id="cart-total">0.00</span></p>
+      <button id="clear-cart" class="clear-btn">Clear Cart</button>
     </div>
   </section>
 
-  <footer class="site-footer">
-    <p>  © 2025  HariTech. Smart Technology.</p>
+  <footer>
+    © 2025 HariTech | Smart Technology.
   </footer>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
+  <script>
     const cart = [];
     const buttons = document.querySelectorAll('.add-to-cart');
     const cartItems = document.getElementById('cart-items');
@@ -80,8 +71,8 @@
     buttons.forEach(button => {
       button.addEventListener('click', () => {
         const card = button.closest('.card');
-        const name = card.querySelector('h3').textContent;
-        const priceText = card.querySelector('.font-bold').textContent.replace('$', '');
+        const name = card.querySelector('h4').textContent;
+        const priceText = card.querySelector('.price').textContent.replace('$', '');
         const price = parseFloat(priceText);
 
         cart.push({ name, price });
@@ -95,8 +86,7 @@
 
       cart.forEach(item => {
         const li = document.createElement('li');
-        li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-        li.classList.add('mb-2');
+        li.textContent = item.name + ' - $' + item.price.toFixed(2);
         cartItems.appendChild(li);
         total += item.price;
       });
@@ -104,13 +94,13 @@
       cartTotal.textContent = total.toFixed(2);
     }
 
-   
     clearBtn.addEventListener('click', () => {
       cart.length = 0;
       renderCart();
     });
-  });
-</script>
+  </script>
+
 </body>
 </html>
+
 
